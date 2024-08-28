@@ -1,0 +1,29 @@
+:root {
+    --mint-green: #98FF98;
+    --soft-yellow: #FFF7B1;
+    --skyblue: #8CD2EE;
+  }
+.nav-link {
+    text-decoration: none;
+    display: flex;
+    padding: 0.3em;
+    text-align: center;
+    color: black;
+}
+.nav-link:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.header-link {
+    text-decoration: none;
+    display: flex;
+    padding: 0.2em;
+    margin-left: 0.2em;
+    text-align: center;
+    color: var(--mint-green);
+}
+.header-link:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}

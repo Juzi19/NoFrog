@@ -1,0 +1,32 @@
+:root {
+  --mint-green: #98FF98;
+  --soft-yellow: #FFF7B1;
+  --skyblue: #8CD2EE;
+}
+body{
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+  width: 100vw;
+  font-family: 'Lucida', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+}
+header{
+  position: sticky;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  top: 0px;
+  width: 100%;
+  height: 12vh;
+  background-color: white;
+  border: 1px solid white;
+}
+nav{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 0.2em;
+}
+
