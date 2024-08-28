@@ -22,6 +22,10 @@
     margin-left: 0.2em;
     text-align: center;
     color: var(--mint-green);
+    font-weight: bold;
+    background: linear-gradient(to top, var(--mint-green),var(--soft-yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .header-link:hover {
     opacity: 0.8;
