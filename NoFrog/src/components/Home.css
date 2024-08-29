@@ -1,0 +1,39 @@
+:root {
+    --mint-green: #98FF98;
+    --soft-yellow: #FFF7B1;
+    --skyblue: #8CD2EE;
+  }
+.businesscard {
+    width: 50vw;
+    border-bottom-width: 0px;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    box-shadow: 0px 1px 0.5em rgba(0, 0, 0, 0.3);
+    margin-left: 0.5em;
+    margin-left: auto;
+}
+    
+#main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #8CD2EE;
+    height: 87vh;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+
+}
+
+.h1textcontainer {
+    margin-left: 1.5vw;
+    display: flex;
+    width: 40vw;
+    height: auto;
+    position: absolute;
+
+}
+.h1textcontainer h1 {
+    color: white;
+    text-align: center;
+    text-shadow: ;
+}
