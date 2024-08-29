@@ -4,25 +4,33 @@
     --skyblue: #8CD2EE;
   }
 .businesscard {
-    width: 50vw;
+    width: 45vw;
     border-bottom-width: 0px;
     border-bottom-style: solid;
     border-bottom-color: white;
     box-shadow: 0px 1px 0.5em rgba(0, 0, 0, 0.3);
-    margin-left: 0.5em;
+    margin-right: 2em;
     margin-left: auto;
 }
     
-#main{
+#landing{
+    position: fixed;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: #8CD2EE;
-    height: 87vh;
+    height: 88vh;
     padding-left: 0.5em;
     padding-right: 0.5em;
+    z-index: 10;
 
 }
+#scrolldown {
+    height: 300vh;
+    opacity: 0;
+}
+
 
 .h1textcontainer {
     margin-left: 1.5vw;
@@ -33,7 +41,41 @@
 
 }
 .h1textcontainer h1 {
+    font-size: 2.5em;
     color: white;
     text-align: center;
-    text-shadow: ;
+}
+
+div h1 span {
+    color: #FFF7B1;
+}
+
+
+
+#headline1visible {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+#headline1notvisible {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+}
+#headline2visible{
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+#headline2notvisible {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+}
+#headline3visible {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+#headline3notvisible {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
 }
