@@ -44,19 +44,40 @@ function Home() {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [circleSize, setCircleSize] = useState(10); // Initiale Größe des Kreises
+  const [circlevisible, setCircleVisible] = useState(true);
+  const [greenvisible, setGreenVisible] = useState(false);
+  const [textVisible, setTextVisible] = useState(false);
+
 
   const handleScrollCircle = () => {
     if (canvasRef.current) {
       const scrollPosition = window.scrollY;
-      if(scrollPosition > 800) {
-        const newSize = Math.min(scrollPosition-790); // Die Größe des Kreises wird basierend auf der Scroll-Position angepasst
+      //scrolldown animations
+      if(scrollPosition > 850 && scrollPosition < 1400) {
+        const newSize = Math.min((scrollPosition)-840); // Die Größe des Kreises wird basierend auf der Scroll-Position angepasst
         setCircleSize(newSize);
+        setCircleVisible(true);
+        setGreenVisible(false);
       }
-      else if (scrollPosition < 800){
+      else if (scrollPosition < 850){
         const newSize = Math.min(10); // Die Größe des Kreises wird basierend auf der Scroll-Position angepasst
         setCircleSize(newSize);
       }
       //beenden der canva animation
+      else if (scrollPosition > 1400 && scrollPosition < 1600){
+        setCircleVisible(false);
+        setGreenVisible(true);
+        setTextVisible(false);
+                
+      }
+
+      else if(scrollPosition > 1600 && scrollPosition < 2050)  {
+        setTextVisible(true);
+
+      }
+      else if (scrollPosition > 2050){
+
+      }
       
     }
   };
@@ -92,7 +113,7 @@ function Home() {
     <>
     <section id='landing'>
         <div className='h1textcontainer' id={`${headline1visible ? 'headline1visible' : 'headline1notvisible'}`}><h1>Ihre <span>Website</span> ist die <span>digitale Visitenkarte.</span></h1></div>
-        <div className='h1textcontainer' id={`${headline2visible ? 'headline2visiible' : 'headline2notvisible'}`}><h1><span>Perfekt</span> gestaltet, gewinnt sie <span>Kunden.</span></h1></div>
+        <div className='h1textcontainer' id={`${headline2visible ? 'headline2visible' : 'headline2notvisible'}`}><h1><span>Perfekt</span> gestaltet, gewinnt sie <span>Kunden.</span></h1></div>
         <div className='h1textcontainer' id={`${headline3visible ? 'headline3visible' : 'headline3notvisible'}`}><h1>Alles <span>andere</span> lässt sie <span>gehen.</span></h1></div>
       <img src="src/assets/business_card.png" alt="Visitenkarte" className='businesscard'/> 
       <canvas 
@@ -100,10 +121,19 @@ function Home() {
         width={window.innerWidth} 
         height={window.innerHeight} 
         id='circlecanvas'
+        className={`${circlevisible ? 'visible' : 'notvisible'}`}
       /> 
     </section>
-    <section id='scrolldown'>
-
+    <section id='greenbackground' className={`${greenvisible ? 'visible' : 'notvisible'}`}>
+      <div className={`${textVisible ? 'visibletransition' : 'notvisibletransition'}`}>
+        <del>durchschnittlich</del>
+        <p>einzigartig.</p>
+      </div>
+      
+    </section>
+    <section id='scrolldown'></section>
+    <section id='samples'>
+      <h2>egal ob...</h2>
     </section>
     </>
   )
