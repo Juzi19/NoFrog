@@ -133,7 +133,15 @@ function Home() {
     </section>
     <section id='scrolldown'></section>
     <section id='samples'>
-      <h2>egal ob...</h2>
+      <div id='samplestext'>
+        <h2>Einzigartig sein ist keine Option</h2>
+        <h2>Es ist ein Muss.</h2>
+        <p>Bei nofrog erschaffen wir Websites, die nicht nur auffallen, sondern unverwechselbar sind</p>
+        <p>Zusammen erstellen wir Ihre Website mit echtem Code - einzigartig.</p>
+        <p>Ihr Online Auftritt wird nicht nur überzeugen, sondern in Erinnerung bleiben.</p>
+        <p>Sie sind einzigartig - warum soll es ihre Website nicht auch sein</p>
+      </div>
+      
     </section>
     </>
   )
