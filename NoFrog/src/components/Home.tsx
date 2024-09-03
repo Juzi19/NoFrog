@@ -48,6 +48,10 @@ function Home() {
   const [textVisible, setTextVisible] = useState(false);
   const [scrollPosition1, setScrollPosition1] = useState(0);
   const [samplesfixed, setSamplesFixed] = useState(false);
+  const [nofrogisfastvisible, setNoFOrgIsFastVIsible] = useState(false);
+  const [text1visible, setText1Visible] = useState(true);
+  const [text2visible, setText2Visible] = useState(false);
+  const [text3visible, setText3Visible] = useState(false);
 
   const handleScroll2 = () => {
     if (canvasRef.current) {
@@ -80,8 +84,32 @@ function Home() {
         setSamplesFixed(true);
         setScrollPosition1(0);
       }
-      else if (scrollPosition > 3100)
+      else if (scrollPosition > 3100 && scrollPosition < 4000){
         setScrollPosition1(scrollPosition - 3100);
+        setNoFOrgIsFastVIsible(false);
+        
+
+      }
+      else if(scrollPosition > 4000 && scrollPosition < 4450) {
+        setNoFOrgIsFastVIsible(true);
+        setText1Visible(false);
+        
+      }
+      else if(scrollPosition > 4450 && scrollPosition < 4900) {
+        setText1Visible(true);
+        setText2Visible(false);
+      }
+      else if(scrollPosition > 4900 && scrollPosition < 5350) {
+        setText1Visible(false);
+        setText2Visible(true);
+        setText3Visible(false);
+      }
+      else if(scrollPosition > 5350 && scrollPosition < 5800) {
+        setText1Visible(false);
+        setText2Visible(false);
+        setText3Visible(true);
+      }
+
 
     }
   };
@@ -193,16 +221,18 @@ function Home() {
     <section id='blackcanvassection'>
        <canvas ref={blackCanvasRef} id='blackcanvas'></canvas>
     </section>
-    <section id='nofrogisfast'>
+    <section id='nofrogisfast'className={`${nofrogisfastvisible ? 'visibletransition' : 'notvisibletransition'}`}>
       <div >
-      <h2>Geschwindigkeit</h2>
-      <p>In nur 20 Tagen von der Idee zur beeindruckenden Website &ndash;
-      Mit NoFrog Webdesign profitieren Sie von blitzschneller Umsetzung, ohne Abstriche bei Qualität und Design. So gewinnen Sie schneller neue Kunden, bleiben der Konkurrenz voraus und können sich voll und ganz auf Ihr Geschäft konzentrieren. Zeit ist Geld &ndash;
+      <h2 className={`${text1visible ? 'visibletransition' : 'notvisibletransition'}`}>Geschwindigkeit.</h2>
+      <p className={`${text2visible ? 'visibletransition' : 'notvisibletransition'}`}>In nur <span>20</span> Tagen von der Idee zur beeindruckenden Website &ndash;
+      Mit NoFrog Webdesign profitieren Sie von blitzschneller Umsetzung, ohne Abstriche bei Qualität und Design.</p>
+      <p className={`${text3visible? 'visibletransition' : 'notvisibletransition'}`}>So gewinnen Sie schneller neue Kunden, bleiben der Konkurrenz voraus und können sich voll und ganz auf Ihr Geschäft konzentrieren. Zeit ist Geld &ndash;
       wir sparen Ihnen beides.</p>
       </div>
       
-
-      <img src="" alt="" />
+      <section>
+      <img src="src/assets/frog.png" alt="" />
+      </section>
     </section>
     </>
   )

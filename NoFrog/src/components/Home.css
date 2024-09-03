@@ -175,10 +175,82 @@ div h1 span {
 
 #furtherscrolldown {
     width: 100vw;
-    height: 2400px;
+    height: 3750px;
     background-color: white;
     z-index: 11;
 }
+
+#nofrogisfast {
+    position: fixed;
+    display: flex;
+    height: 88vh;
+    width: 100vw;
+    top: 12vh;
+    z-index: 11;
+    color: white;
+    background-color: black;
+    align-items: center;
+    text-align: center;
+}
+
+#nofrogisfast div {
+    width: 50vw;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-left: 5vw;
+}
+
+#nofrogisfast div h2 {
+    width: 50vw;
+    font-size: 2.5em; 
+}
+
+#nofrogisfast div p {
+    width: 50vw;
+    position: absolute;
+}
+
+#nofrogisfast section {
+    margin-left: auto;
+    width: fit-content;
+    margin-right: 5vw;
+    padding: 0.4em;
+    border-radius: 10px;
+    background-color: rgb(48, 48, 48);
+    position: relative; /* Damit das ::after Pseudo-Element relativ zum Bild positioniert ist */
+}
+#nofrogisfast section img {
+    width: 24vw;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+#nofrogisfast section::after, #nofrogisfast section::before {
+    content: '';  
+    position: absolute;  
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: conic-gradient(from var(--angle), #FF0077, #FF8C00, #FFFF00, #00FF00, #00FFFF, #0000FF, #800080, #FF0077);
+    padding: 0.2em;
+    z-index: -1;
+    border-radius: 10px;
+    opacity: 0.9;
+    animation: 3s spin linear infinite;
+}
+#nofrogisfast section::before {
+    filter: blur(1.5rem);
+    opacity: 1;
+}
+
 
 
 
@@ -252,4 +324,13 @@ div h1 span {
         transform: skew(0deg);
         clip: rect(44px, 450px, 56px, 0);
     }
+}
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle :360deg;
+    }
+    
 }
