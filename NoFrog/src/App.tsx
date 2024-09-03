@@ -10,7 +10,7 @@ function App() {
       <header>
         <Link to="/" className="header-link"><h1>nofrog</h1></Link>
         <nav>
-          <Link to="/more" className="nav-link ">Mehr</Link>
+          <Link to="/webdesign" className="nav-link ">Webdesign</Link>
           <Link to="/aboutus" className="nav-link">Über uns</Link>
           <Link to="/contact" className="nav-link">Kontakt</Link>
         </nav>

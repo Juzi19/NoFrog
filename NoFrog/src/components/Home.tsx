@@ -4,7 +4,6 @@ import './Home.css'
 
 function Home() {
   //Start Code text Animation
-
   //Const text visible
   const [headline1visible, setheadline1visible] = useState(true);
   const [headline2visible, setheadline2visible] = useState(false);
@@ -47,9 +46,10 @@ function Home() {
   const [circlevisible, setCircleVisible] = useState(true);
   const [greenvisible, setGreenVisible] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
+  const [scrollPosition1, setScrollPosition1] = useState(0);
+  const [samplesfixed, setSamplesFixed] = useState(false);
 
-
-  const handleScrollCircle = () => {
+  const handleScroll2 = () => {
     if (canvasRef.current) {
       const scrollPosition = window.scrollY;
       //scrolldown animations
@@ -71,28 +71,33 @@ function Home() {
                 
       }
 
-      else if(scrollPosition > 1600 && scrollPosition < 2050)  {
+      else if(scrollPosition > 1600 && scrollPosition < 2904)  {
         setTextVisible(true);
+        setSamplesFixed(false);
 
       }
-      else if (scrollPosition > 2050){
-
+      else if (scrollPosition > 2904 && scrollPosition < 3100){
+        setSamplesFixed(true);
+        setScrollPosition1(0);
       }
-      
+      else if (scrollPosition > 3100)
+        setScrollPosition1(scrollPosition - 3100);
+
     }
   };
+  
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScrollCircle);
+    window.addEventListener('scroll', handleScroll2);
 
     // Cleanup-Funktion zum Entfernen des Event-Listeners
     return () => {
-      window.removeEventListener('scroll', handleScrollCircle);
+      window.removeEventListener('scroll', handleScroll2);
     };
   }, []);
 
   useEffect(() => {
-    const canvas  = canvasRef.current;
+    const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
     
     if (ctx) {
@@ -107,6 +112,43 @@ function Home() {
     }
   }, [circleSize]); // Der Effekt wird ausgeführt, wenn die Größe des Kreises sich ändert
 
+
+  //black canvas animation 
+
+  
+  const blackCanvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    console.log(scrollPosition1)
+    const canvas2 = blackCanvasRef.current;
+    if (!canvas2) return;
+    const ctx2 = canvas2?.getContext('2d');
+    if (!ctx2) return;
+
+    canvas2.width = window.innerWidth;
+    canvas2.height = window.innerHeight * 0.88;
+
+    const rectWidth = canvas2.width / 5;
+    const rectHeight = scrollPosition1;
+    console.log("start drawing")
+    ctx2.clearRect(0, 0, canvas2.width, canvas2.height)
+
+
+    ctx2.fillStyle = 'black';
+    console.log("rectangel height" + rectHeight)
+    
+    ctx2.beginPath();
+
+    ctx2.fillRect(0, 0, rectWidth + 1, rectHeight);
+    ctx2.fillRect(rectWidth, canvas2.height, rectWidth +1 , -rectHeight);
+    ctx2.fillRect(rectWidth * 2, 0, rectWidth + 1, rectHeight);
+    ctx2.fillRect(rectWidth * 3, canvas2.height, rectWidth + 1, -rectHeight);
+    ctx2.fillRect(rectWidth * 4, 0, rectWidth + 1, rectHeight);
+
+    ctx2.fill();
+
+    
+  }, [scrollPosition1]);
 
 
   return (
@@ -132,16 +174,35 @@ function Home() {
       
     </section>
     <section id='scrolldown'></section>
-    <section id='samples'>
+    <section id='samples' className={`${samplesfixed ? 'samplesfixed' : 'samplesrelative'}`}>
       <div id='samplestext'>
-        <h2>Einzigartig sein ist keine Option</h2>
-        <h2>Es ist ein Muss.</h2>
-        <p>Bei nofrog erschaffen wir Websites, die nicht nur auffallen, sondern unverwechselbar sind</p>
-        <p>Zusammen erstellen wir Ihre Website mit echtem Code - einzigartig.</p>
-        <p>Ihr Online Auftritt wird nicht nur überzeugen, sondern in Erinnerung bleiben.</p>
-        <p>Sie sind einzigartig - warum soll es ihre Website nicht auch sein</p>
+          <div>
+            <h2>Einzigartig sein ist keine Option</h2>
+            <h2>Es ist ein Muss.</h2>
+          </div>
+          <div>
+            <p>Bei nofrog erschaffen wir Websites, die nicht nur ins Auge fallen, sondern auch einzigartig sind.</p>
+            <p>Zusammen erstellen wir Ihre Website mit echtem Code - kein stadarisiertes Wordpress.</p>
+            <p>Ihr Online Auftritt wird nicht nur überzeugen, sondern in Erinnerung bleiben.</p>
+            <p>Sie sind einzigartig - wird es Ihre Website auch?</p>
+
+          </div>
+        </div>
+    </section>
+    <section id='furtherscrolldown'></section>
+    <section id='blackcanvassection'>
+       <canvas ref={blackCanvasRef} id='blackcanvas'></canvas>
+    </section>
+    <section id='nofrogisfast'>
+      <div >
+      <h2>Geschwindigkeit</h2>
+      <p>In nur 20 Tagen von der Idee zur beeindruckenden Website &ndash;
+      Mit NoFrog Webdesign profitieren Sie von blitzschneller Umsetzung, ohne Abstriche bei Qualität und Design. So gewinnen Sie schneller neue Kunden, bleiben der Konkurrenz voraus und können sich voll und ganz auf Ihr Geschäft konzentrieren. Zeit ist Geld &ndash;
+      wir sparen Ihnen beides.</p>
       </div>
       
+
+      <img src="" alt="" />
     </section>
     </>
   )
