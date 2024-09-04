@@ -173,12 +173,151 @@ div h1 span {
   z-index: 11; /* Stellt sicher, dass das Canvas über anderen Elementen liegt */
 }
 
+#backgroundcolorgrey {
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 88vh;
+    top: 12vh;
+    background-color: #333;
+    z-index: 12;
+}
+
 #furtherscrolldown {
     width: 100vw;
     height: 3750px;
     background-color: white;
     z-index: 11;
 }
+
+#furtherscrolldown2 {
+    width: 100vw;
+    height: 2600px;
+}
+#beforecontactform {
+    width: 100vw;
+    margin: 0px;
+    height: 25vh;
+    display: flex;
+    background-color: var(--skyblue);
+    z-index: 13;
+    position: relative;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+#beforecontactform p {
+    margin: 2em;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#contactform {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    z-index: 13;
+    background-color: var(--skyblue);
+    width: 100vw;
+    height: fit-content;
+}
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 10vh;
+  }
+
+#form div {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+input[type="email"],
+textarea {
+  padding: 15px; /* Vergrößerte Polsterung */
+  font-size: 18px; /* Größere Schriftgröße */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  width: 60vw;
+
+}
+textarea{
+    min-height: 40vh;
+}
+
+input[type="email"]:focus,
+textarea:focus {
+  border-color: blue; /* Mintgrün */
+  outline: none;
+}
+
+input[type="submit"] {
+  padding: 15px; /* Größere Polsterung für den Submit-Button */
+  font-size: 18px; /* Größere Schriftgröße */
+  color: #fff;
+  background-color: var(--mint-green); /* Mintgrün */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #55b381; /* Dunkleres Mintgrün */
+}
+
+
+
+#contactform a:hover {
+  color: var(--mint-green) /* Dunkleres Mintgrün */
+}
+
+
+#happyfrog {
+    width: 100vw;
+    height: 100vh;
+    z-index: 12;
+    background-color: var(--soft-yellow);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.relative {
+    position: relative;
+
+}
+.fixed {
+    position: fixed;
+    top: 12vh;
+    
+}
+#happyfrogtext {
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+#happyfrogtext * {
+    position: absolute;
+    font-size: 1.5em;
+}
+#happyfrogtext h2 {
+    font-size: 3em;
+}
+
+
+
 
 #nofrogisfast {
     position: fixed;
@@ -210,6 +349,9 @@ div h1 span {
 #nofrogisfast div p {
     width: 50vw;
     position: absolute;
+}
+#nofrogisfast div p span{
+    color: var(--mint-green);
 }
 
 #nofrogisfast section {

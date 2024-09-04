@@ -19,6 +19,25 @@ function App() {
         <Route path="/" element={<Home />} />
 
       </Routes>
+      <footer>
+        <div id='socialmedia'>
+          <a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram" id='insta'>
+            <i className="fab fa-instagram"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn" id='linkedin'>
+            <i className="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <div id='footerimage'>
+          <img src="src/assets/frog.png" alt="Frog" />
+        </div>
+        <div id='footerlinks'>
+          <Link>Kontakt</Link>
+          <Link>Impressum</Link>
+          <Link>Datenschutz</Link>
+        </div>
+      </footer>
     </div>
   );
 }

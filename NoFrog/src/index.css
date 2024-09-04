@@ -33,4 +33,21 @@ nav{
   justify-content: flex-end;
   margin-right: 0.2em;
 }
+a {
+  margin-top: 1em;
+  text-align: center;
+  color: white; /* Mintgrün */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+footer {
+  position: relative;
+  z-index: 15;
+  background-color: #333;
+  display: flex;
+  width: 100vw;
+  height: fit-content;
+  align-items: center;
+}
 

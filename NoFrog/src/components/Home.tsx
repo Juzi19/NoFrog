@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import './Home.css'
+import { Link } from 'react-router-dom';
 
 
 function Home() {
@@ -49,9 +50,14 @@ function Home() {
   const [scrollPosition1, setScrollPosition1] = useState(0);
   const [samplesfixed, setSamplesFixed] = useState(false);
   const [nofrogisfastvisible, setNoFOrgIsFastVIsible] = useState(false);
-  const [text1visible, setText1Visible] = useState(true);
+  const [text1visible, setText1Visible] = useState(false);
   const [text2visible, setText2Visible] = useState(false);
   const [text3visible, setText3Visible] = useState(false);
+  const [happyfrogrelative, setHappyFrogRelative] = useState(true);
+  const [happyfrogtext1visible, setHappyFrogText1Visible] = useState(false);
+  const [happyfrogtext2visible, setHappyFrogText2Visible] = useState(false);
+  const [happyfrogtext3visible, setHappyFrogText3Visible] = useState(false);
+  const [backgroundcolorgrey, setBackGroundColorGrey] = useState(false);
 
   const handleScroll2 = () => {
     if (canvasRef.current) {
@@ -108,7 +114,42 @@ function Home() {
         setText1Visible(false);
         setText2Visible(false);
         setText3Visible(true);
+        setNoFOrgIsFastVIsible(true);
       }
+      else if (scrollPosition > 5800 && scrollPosition < 6645) {
+        setNoFOrgIsFastVIsible(false);
+        setHappyFrogRelative(true);
+      }
+      else if(scrollPosition > 6645 && scrollPosition < 7100) {
+        setHappyFrogRelative(false);
+        setHappyFrogText1Visible(false);
+
+      }
+      else if(scrollPosition > 7100 && scrollPosition < 7550) {
+        setHappyFrogRelative(false);
+        setHappyFrogText1Visible(true);
+        setHappyFrogText2Visible(false);
+      }
+      else if(scrollPosition > 7550 && scrollPosition < 8000) {
+        setHappyFrogText1Visible(false);
+        setHappyFrogText2Visible(true);
+        setHappyFrogText3Visible(false);
+      }
+      else if(scrollPosition > 8000 && scrollPosition < 8450) {
+        setHappyFrogText2Visible(false);
+        setHappyFrogText3Visible(true);
+      }
+      else if(scrollPosition > 8450 && scrollPosition < 8900) {
+        setHappyFrogText3Visible(false);
+      }
+      else if(scrollPosition >8900 && scrollPosition < 9300) {
+        setBackGroundColorGrey(false);
+      }
+      else if (scrollPosition > 9300) {
+        setBackGroundColorGrey(true);
+        console.log("backgound grey")
+      }
+      
 
 
     }
@@ -234,6 +275,47 @@ function Home() {
       <img src="src/assets/frog.png" alt="" />
       </section>
     </section>
+    <section id='happyfrog' className={`${happyfrogrelative ? 'relative' : 'fixed' }`}>
+      <div id='happyfrogtext'>
+      <h2 className={`${happyfrogtext1visible ? 'visibletransition' : 'notvisibletransition'}`}>Zufriedenheitsgarantie</h2>
+        <p className={`${happyfrogtext2visible ? 'visibletransition' : 'notvisibletransition'}`}>
+        Ihre Zufriedenheit ist unser Versprechen 
+        &ndash; Sie zahlen nur, wenn Sie begeistert sind. 
+        Mit unserer Geld-zurück-Garantie garantieren wir: 
+        Keine Kompromisse, kein Risiko, 
+        nur erstklassige Ergebnisse.
+        </p>
+        <p className={`${happyfrogtext3visible ? 'visibletransition' : 'notvisibletransition'}`}>
+          Ihre Website &ndash; genau so, wie Sie es sich vorstellen.
+        </p>
+      </div>
+    </section>
+    <section id='furtherscrolldown2'></section>
+    <section id='beforecontactform'>
+      <p>Keine Sorge, unsere Frösche bei NoFrog 
+        quaken nur, wenn es wichtig ist! <br />Hinterlassen
+         Sie uns Ihre Kontaktdaten, und wir hüpfen direkt
+          zu Ihnen rüber.
+      </p>
+    </section>
+    <section id="contactform">
+  <div id="form">
+    <div>
+      <label htmlFor="email">Email:&nbsp;</label>
+      <input type="email" id="email" placeholder="mrfrog@nofrog-webdesign.de" />
+    </div>
+    <div>
+      <label htmlFor="message">Nachricht:&nbsp;</label>
+      <textarea  id="message" placeholder="Quack!" />
+    </div>
+    <div>
+      <input type="submit" value="Absenden" />
+      <Link to="/webdesign">Mehr erfahren...</Link>
+    </div>
+  </div>
+</section>
+<section id={`${backgroundcolorgrey ? 'backgroundcolorgrey' : ''}`}></section>
+
     </>
   )
 }

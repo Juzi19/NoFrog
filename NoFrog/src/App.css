@@ -31,3 +31,40 @@
     opacity: 0.8;
     cursor: pointer;
 }
+
+footer a {
+    color: white;
+}
+footer img {
+    height: 100%;
+}
+#footerimage {
+    display: flex;
+    height: 10vh;
+    margin-left: 32.5%;
+}
+#footerlinks {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: 5vw;
+    margin-bottom: 2vh;
+}
+#footerlinks a {
+    text-align: end;
+}
+#footerlinks a:hover {
+    color: #98FF98;
+}
+#socialmedia {
+    margin-left: 5vw;
+}
+#socialmedia a {
+    margin: 3px;
+}
+#insta :hover {
+    color: rgb(255, 119, 0);
+}
+#linkedin :hover {
+    color: blue;
+}
