@@ -19,6 +19,15 @@
     justify-content: center;
     z-index: 1;
 }
+#whitewebdesignheader {
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    top: 12vh;
+    height: 88vh;
+    background-color: white;
+    z-index: 1;
+}
 #webdesignheader2 * {
     position:absolute;
 }
@@ -37,7 +46,223 @@
 #webdesigntext1 {
     width: 100vw;
     position: relative;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
     z-index: 5;
     background-color: white;
-    height: 100vh;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    width:  100vw;
+    flex-direction: row;
+}
+#webdesigntext1 div{
+    display: flex;
+    padding: 5vh;
+    width: 50vw;
+    height: 40vw;
+    align-items: center;
+}
+#webdesigntext1 img {
+    height: 40vw;
+    margin: 5vh;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.8);
+
+}
+#bluebackground {
+    position: relative;
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--skyblue);
+    z-index: 5;
+}
+#webdesigntext2 {
+    position: relative;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    z-index: 5;
+    background-color: white;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    width:  100vw;
+    height: fit-content;
+    flex-direction: row;
+    border: 0px;
+    border-top: 4px;
+    border-style: solid;
+    border-color: var(--skyblue);
+}
+
+#webdesigntext2 img {
+    height: 40vw;
+    margin: 5vh;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.8);
+
+}
+#webdesigntext2 div{
+    display: flex;
+    padding: 5vh;
+    width: 50vw;
+    height: 40vw;
+    align-items: center;
+}
+#webdesigntext3 {
+    position: relative;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    z-index: 5;
+    background-color: white;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    width:  100vw;
+    height: fit-content;
+    flex-direction: row;
+    border: 0px;
+    border-top: 4px;
+    border-style: solid;
+    border-color: var(--skyblue);
+}
+
+#webdesigntext3 img {
+    height: 40vw;
+    margin: 5vh;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.8);
+
+}
+#webdesigntext3 div{
+    display: flex;
+    padding: 5vh;
+    width: 50vw;
+    height: 40vw;
+    align-items: center;
+}
+#webdesigntext4 {
+    position: relative;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    z-index: 5;
+    background-color: white;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    width:  100vw;
+    height: fit-content;
+    flex-direction: row;
+    border: 0px;
+    border-top: 4px;
+    border-style: solid;
+    border-color: var(--skyblue);
+}
+
+#webdesigntext4 img {
+    height: 40vw;
+    margin: 5vh;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.8);
+
+}
+#webdesigntext4 div{
+    display: flex;
+    padding: 5vh;
+    width: 50vw;
+    height: 40vw;
+    align-items: center;
+}
+#clients {
+    position: relative;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    z-index: 5;
+    background-color: white;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    flex-direction: row;
+    border-top: 4px solid var(--skyblue);
+}
+
+#clients div {
+    background-color: var(--mint-green);
+    font-style: italic;
+    border-radius: 1.5vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    padding: 3vw;
+    position: relative; /* Wichtig für absolute Positionierung der Pseudo-Elemente */
+    max-width: 50%;
+    text-align: center;
+}
+
+#clients div::before {
+    content: '“'; /* Linkes Anführungszeichen */
+    font-size: 3rem; /* Größere Anführungszeichen */
+    color: black;
+    position: absolute;
+    top:0.3vw; /* Platzierung nach oben */
+    left: 0.5vw; /* Platzierung nach links */
+}
+
+#clients div::after {
+    content: '„'; /* Rechtes Anführungszeichen */
+    font-size: 3rem;
+    color: black;
+    position: absolute;
+    bottom: 1vw; /* Platzierung nach unten */
+    right: 2vw; /* Platzierung nach rechts */
+}
+#pricing {
+    position: relative;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    z-index: 5;
+    background-color: white;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    width:  100vw;
+    height: fit-content;
+    flex-direction: row;
+    border: 0px;
+    border-top: 4px;
+    border-style: solid;
+    border-color: var(--skyblue);
+}
+
+#pricing img {
+    height: 40vw;
+    margin: 5vh;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.8);
+
+}
+#pricing div{
+    display: flex;
+    padding: 5vh;
+    width: 50vw;
+    height: 40vw;
+    align-items: center;
+}
+#endtext {
+    position: relative;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    z-index: 5;
+    background-color: white;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:  100vw;
+    height: fit-content;
+    flex-direction: row;
+    border: 0px;
+    border-top: 4px;
+    border-style: solid;
+    border-color: var(--skyblue);
+    margin-bottom: 5vh;
+}
+#endtext p {
+    font-weight: bold;
 }

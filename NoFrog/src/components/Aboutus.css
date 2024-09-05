@@ -1,0 +1,120 @@
+:root {
+    --mint-green: #98FF98;
+    --soft-yellow: #FFF7B1;
+    --skyblue: #8CD2EE;
+}
+#bodyaboutus {
+    background-color: var(--soft-yellow);
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    width: 100vw;
+    height: fit-content;
+}
+#aboutusheadline {
+    display: flex;
+    width: 90%;
+    height: 88vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    border: 0px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-bottom: 5px solid #333;
+}
+#aboutustext1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    line-height: 1.3em;
+    border: 0px;
+    border-bottom: 5px solid #333;
+
+}
+#aboutustext2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 10%;
+    padding-top: 10%;
+    line-height: 1.3em;
+}
+#lineargradientyellowblack {
+    display: flex;
+    width: 100%;
+    height: 25vh;
+    background: linear-gradient(to bottom, var(--soft-yellow), white);
+
+}
+#team {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+#team h2 {
+    font-size: 2em;
+}
+#teamcontainer {
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 5vw;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    border-bottom: 5px solid #333;
+    border-top: 5px solid #333;
+}
+#teamcontainer img {
+    width: 40vw;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.8);
+    border-radius: 0.5em;
+
+}
+#teamcontainer div {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    align-items: center;
+    align-items: end;
+    padding-right: 5vw;
+}
+#teamcontainer2 {
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 5vw;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+}
+#teamcontainer2 img {
+    width: 40vw;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.8);
+    border-radius: 0.5em;
+}
+#teamcontainer2 div {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    align-items: center;
+    align-items: start;
+    padding-left: 5vw;
+}

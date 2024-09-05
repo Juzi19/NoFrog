@@ -4,6 +4,7 @@ import Home from './components/Home.tsx'
 import './App.css'
 import Contact from './components/Contact.tsx';
 import Webdesign from './components/Webdesign.tsx';
+import Aboutus from './components/Aboutus.tsx';
 
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/contact' element={<Contact />}/>
         <Route path='/webdesign' element={<Webdesign />}/>
+        <Route path='/aboutus' element={<Aboutus />}/>
+
 
 
       </Routes>
