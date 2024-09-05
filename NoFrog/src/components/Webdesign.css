@@ -1,0 +1,43 @@
+:root {
+    --mint-green: #98FF98;
+    --soft-yellow: #FFF7B1;
+    --skyblue: #8CD2EE;
+    text-align: center;
+  }
+
+#bodywebdesign span {
+    font-weight: bold;
+} 
+#webdesignheader2{
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    top: 12vh;
+    height: 88vh;
+    background-color: var(--skyblue);
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+#webdesignheader2 * {
+    position:absolute;
+}
+#webdesignheader2 h2 {
+    font-weight: bold;
+    font-size: 3em;
+}
+#webdesignheader2 img {
+    width: 60vh;
+}
+#scrolldown3 {
+    display: flex;
+    width: 100vw;
+    height: 1475px;
+}
+#webdesigntext1 {
+    width: 100vw;
+    position: relative;
+    z-index: 5;
+    background-color: white;
+    height: 100vh;
+}
