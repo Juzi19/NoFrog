@@ -40,8 +40,8 @@ footer img {
 }
 #footerimage {
     display: flex;
-    height: 10vh;
-    margin-left: 32.5%;
+    height: 6vw;
+    margin-left: 20vw;
 }
 #footerlinks {
     display: flex;
@@ -49,6 +49,7 @@ footer img {
     margin-left: auto;
     margin-right: 5vw;
     margin-bottom: 2vh;
+    width: 20vw;
 }
 #footerlinks a {
     text-align: end;
@@ -58,6 +59,8 @@ footer img {
 }
 #socialmedia {
     margin-left: 5vw;
+    display: flex;
+    width: 20vw;
 }
 #socialmedia a {
     margin: 3px;
@@ -68,3 +71,4 @@ footer img {
 #linkedin :hover {
     color: blue;
 }
+

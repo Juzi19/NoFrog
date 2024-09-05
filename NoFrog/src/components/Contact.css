@@ -1,0 +1,44 @@
+:root {
+    --mint-green: #98FF98;
+    --soft-yellow: #FFF7B1;
+    --skyblue: #8CD2EE;
+}
+#contactheadline {
+    background-color: var(--skyblue);
+    margin: 0px;
+    padding-bottom:1vh;
+    padding-top: 1vh;
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+#contactheadline h2 {
+    background-color: var(--skyblue);
+}
+#iframesmap {
+    width: 45vw;
+    height: 40vh;
+    display: flex;
+    margin-left: auto;
+    margin-right: 2.5vw;
+    border: 2px solid #333;
+}
+#contactdetails {
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    padding-top: 4vh;
+    padding-bottom: 10vh;
+    background-color: var(--skyblue);
+
+}
+#contactdetails p {
+    margin: 2.5vw;
+    color: #333;
+}
+#contactdetails p a {
+    color: #333;
+    font-weight: normal;
+}
+
+

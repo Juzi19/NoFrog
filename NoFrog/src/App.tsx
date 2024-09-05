@@ -2,6 +2,7 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import Home from './components/Home.tsx'
 import './App.css'
+import Contact from './components/Contact.tsx';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path='/contact' element={<Contact />}/>
 
       </Routes>
       <footer>
@@ -33,9 +35,9 @@ function App() {
           <img src="src/assets/frog.png" alt="Frog" />
         </div>
         <div id='footerlinks'>
-          <Link>Kontakt</Link>
-          <Link>Impressum</Link>
-          <Link>Datenschutz</Link>
+          <Link to='/contact'>Kontakt</Link>
+          <Link to='/legals'>Impressum</Link>
+          <Link to='dataguidelines'>Datenschutz</Link>
         </div>
       </footer>
     </div>
