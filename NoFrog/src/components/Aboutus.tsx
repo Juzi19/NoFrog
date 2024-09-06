@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import './Aboutus.css';
 
 function Aboutus() {
+    useEffect(()=> {
+        window.scrollTo(0,0);
+    }, [])
   return (
     <div id='bodyaboutus'>
         <section id='aboutusheadline'><h2>It's all about frogs...</h2></section>
