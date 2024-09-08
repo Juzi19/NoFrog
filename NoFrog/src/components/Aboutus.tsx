@@ -14,7 +14,7 @@ function Aboutus() {
         <section id='team'>
             <h2>Team:</h2>
             <div id='teamcontainer'>
-            <div><h3>Justus</h3><p>Mr. Frog</p></div>
+            <div><h3>Justus</h3><p>Mr. Frog & Chief Frog Officer</p></div>
             <img src="src/assets/happyfrog.jpg" alt="Justus" />
             </div>
             <div id='teamcontainer2'>

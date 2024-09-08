@@ -1,10 +1,13 @@
 // src/App.js
 import { Routes, Route, Link } from 'react-router-dom'
-import Home from './components/Home.tsx'
+import Homepage from './components/Homepage.tsx'
 import './App.css'
 import Contact from './components/Contact.tsx';
 import Webdesign from './components/Webdesign.tsx';
 import Aboutus from './components/Aboutus.tsx';
+import Legals from './components/Legals.tsx';
+import DataUsage from './components/DataUsage.tsx';
+import CookieRequest from './components/CookieRequest.tsx';
 
 
 function App() {
@@ -18,11 +21,15 @@ function App() {
           <Link to="/contact" className="nav-link">Kontakt</Link>
         </nav>
       </header>
+      <CookieRequest></CookieRequest>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Homepage />} />
         <Route path='/contact' element={<Contact />}/>
         <Route path='/webdesign' element={<Webdesign />}/>
         <Route path='/aboutus' element={<Aboutus />}/>
+        <Route path='/legals' element={<Legals />}/>
+        <Route path='/dataguidelines' element={<DataUsage />}/>
+
 
 
 

@@ -46,7 +46,7 @@ function Home() {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [circleSize, setCircleSize] = useState(10); // Initiale Größe des Kreises
-  const [circlevisible, setCircleVisible] = useState(true);
+  const [circlevisible, setCircleVisible] = useState(false);
   const [greenvisible, setGreenVisible] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
   const [scrollPosition1, setScrollPosition1] = useState(0);
@@ -156,7 +156,8 @@ function Home() {
 
     }
   };
-  
+
+
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll2);

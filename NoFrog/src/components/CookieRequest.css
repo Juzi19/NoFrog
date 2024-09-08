@@ -1,0 +1,98 @@
+:root {
+    --mint-green: #98FF98;
+    --soft-yellow: #FFF7B1;
+    --skyblue: #8CD2EE;
+}
+/* Popup-Hintergrund */
+#cookies {
+    position: fixed;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Unsichtbar, wenn das Banner geschlossen wird */
+#invisible {
+    display: none;
+}
+
+/* Popup-Inhalt */
+#firstdiv {
+    display: flex;
+    flex-direction: column;
+    margin: 5vw;
+    padding: 5vw;
+    border-radius: 2vw;
+    background-color: var(--soft-yellow);
+}
+
+/* Textstil */
+#firstdiv h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+#firstdiv p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Links */
+#firstdiv a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#firstdiv a:hover {
+    color: var(--skyblue);
+}
+
+/* Button-Stile */
+button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0.5vw;
+}
+
+/* Button Akzeptieren */
+button:nth-child(1) {
+    background-color: #28a745;
+    color: #fff;
+}
+
+button:nth-child(1):hover {
+    background-color: #218838;
+}
+
+/* Button Ablehnen */
+button:nth-child(2) {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+button:nth-child(2):hover {
+    background-color: #c82333;
+}
+
+/* Responsive Anpassung */
+@media (max-width: 768px) {
+    #cookies {
+        flex-direction: column;
+        align-items: flex-start;
+   
+    }}
