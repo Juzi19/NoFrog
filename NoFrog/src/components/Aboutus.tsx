@@ -15,7 +15,7 @@ function Aboutus() {
             <h2>Team:</h2>
             <div id='teamcontainer'>
             <div><h3>Justus</h3><p>Mr. Frog & Chief Frog Officer</p></div>
-            <img src="src/assets/happyfrog.jpg" alt="Justus" />
+            <img src="src/assets/Justus.jpg" alt="Justus" />
             </div>
             <div id='teamcontainer2'>
             <img src="src/assets/John.jpg" alt="Justus" />

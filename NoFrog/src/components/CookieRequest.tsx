@@ -2,24 +2,29 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CookieRequest.css';
 
+//MIght work on the cookie banners style and consider letting it drop in after a catching a glimpse
+
 function CookieRequest() {
     const [answerCookie, setAnswerCookie] = useState(false); // Popup wird beim ersten Rendern angezeigt
     const [cookiesAllowed, setCookiesAllowed] = useState(false); // Zustand für erlaubte Cookies
 
     useEffect(() => {
-        // Überprüfen, ob ein Cookie vorhanden ist
-        const activeCookies = document.cookie;
-        if (activeCookies === "") {
-            setAnswerCookie(true); // Zeige das Popup, wenn keine Cookies gesetzt sind
+        // Überprüfen, ob der Cookie 'cookiesAllowed' vorhanden ist
+        const activeCookies = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('cookiesAllowed='));
+        
+        if (!activeCookies) {
+            setAnswerCookie(true); // Zeige das Popup, wenn der Cookie nicht existiert
         } else {
-            setAnswerCookie(false); // Verstecke das Popup, wenn Cookies schon akzeptiert oder abgelehnt wurden
+            setAnswerCookie(false); // Verstecke das Popup, wenn der Cookie bereits gesetzt ist
         }
     }, []);
 
     function acceptCookies() {
         setCookiesAllowed(true); // Cookies erlaubt
         setAnswerCookie(true); // Popup schließen
-        document.cookie = "cookiesAllowed=true"; // Setzt einen Cookie
+        document.cookie = "cookiesAllowed=true; max-age=31536000"; // Setzt Cookie für ein Jahr
     }
 
     function denyCookies() {
