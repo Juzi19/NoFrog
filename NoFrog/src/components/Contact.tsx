@@ -1,10 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Contact.css';
+import Contactform from './Contactform';
 
 function Contact() {
+
+   
+
     useEffect (() => {
         window.scrollTo(0, 0);
-    }, [])
+    }, []);
   return (
     <>
         <section id='contactheadline'>
@@ -25,21 +29,7 @@ function Contact() {
             title="Google Maps Embed"
             ></iframe>
         </section>
-        <section id="contactform">
-            <div id="form">
-                <div>
-                <label htmlFor="email">Email:&nbsp;</label>
-                <input type="email" id="email" placeholder="mrfrog@nofrog-webdesign.de" />
-                </div>
-                <div>
-                <label htmlFor="message">Nachricht:&nbsp;</label>
-                <textarea  id="message" placeholder="Quack!" />
-                </div>
-                <div>
-                <input type="submit" value="Absenden" />
-                </div>
-            </div>
-        </section>
+        <Contactform></Contactform>
         
     </>
   )

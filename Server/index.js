@@ -11,7 +11,7 @@ const PORT = process.env.PORT||5000;
 //Fuer CORS und JSON
 
 app.use(cors()); //Möglichkeit Anfragen von einer anderen Domain empfangen
-app.use(express.json()); //Verarbeitet json daten, sie von dem CLient gesendet werden
+app.use(express.json()); //Verarbeitet json daten, die von dem CLient gesendet werden
 
 //Test route um Sicherzustellen, dass der Server läuft
 
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
     res.send('<h1>Server is running </h1>');
 });
 
-//Route für das KOntaktformular
+//Route für das Kontaktformular
 
 app.post('/send-email', async (req, res) => {
     //Wir erwarten, bis der Client (react) die daten schickt
@@ -36,26 +36,35 @@ app.post('/send-email', async (req, res) => {
         let transporter = nodemailer.createTransport({
             service: 'Gmail', //Gmail als email dienst
             auth: {
-                user: 'mylogindata@gmail.com', //GMial Adresse
-                pass: 'mypassword', //Passwort
+                user: 'nofrog.webdesign@gmail.com', //GMial Adresse
+                pass: 'rtci otki qjda rxds ', //Passwort
             },
         });
 
         //E-Mail Konfiguration
 
         let mailOptions = {
-            from: email, //Die Absenderadresse vonm KOntaktformular
-            to: 'ziel@email.com', //Empfängeradresse
+            from: email, //Die Absenderadresse vom Kontaktformular
+            to: 'justus.zimmermann@gmx.de', //Empfängeradresse
             subject: `Neue Nachricht von ${email}`,
             text: message, //Der Inhalt
 
         };
+
+        let mailConfirm = {
+            from: 'nofrog.webdesign@gmail.com',
+            to: email,
+            subject: 'Your NoFrog Request',
+            html: `Thank you so much for your message. We will get in touch with you as soon as possible!🐸 <br><br> Your Message: ${message} <br><br> This message was created automatically. Please do not reply. We will reach you out as soon as possible.`
+        }
         
         //Versende die Mail
 
         let info = await transporter.sendMail(mailOptions);
+        let autoconfirm = await transporter.sendMail(mailConfirm);
 
-        console.log('E-Mail gesendet' + info.response);
+        console.log('E-Mail gesendet' + info.response + autoconfirm.response);
+        console.log("Erfolgreich gesendet");
         res.status(200).json({success: 'E-Mail erfolgreich gesendet'});
     }
     catch(error) {
