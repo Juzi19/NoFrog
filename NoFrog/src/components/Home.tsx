@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import {  useEffect, useRef, useState } from 'react'
 import './Home.css'
 import { Link } from 'react-router-dom';
+import Contactform from './Contactform';
 
 
 function Home() {
@@ -301,22 +302,8 @@ function Home() {
           zu Ihnen rüber.
       </p>
     </section>
-    <section id="contactform">
-  <div id="form">
-    <div>
-      <label htmlFor="email">Email:&nbsp;</label>
-      <input type="email" id="email" placeholder="mrfrog@nofrog-webdesign.de" />
-    </div>
-    <div>
-      <label htmlFor="message">Nachricht:&nbsp;</label>
-      <textarea  id="message" placeholder="Quack!" />
-    </div>
-    <div>
-      <input type="submit" value="Absenden" />
-      <Link to="/webdesign">Mehr erfahren...</Link>
-    </div>
-  </div>
-</section>
+    <Contactform></Contactform>
+
 <section id={`${backgroundcolorgrey ? 'backgroundcolorgrey' : ''}`}></section>
 
     </>

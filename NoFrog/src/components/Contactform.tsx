@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import DOMPurify from 'dompurify';
 
 function Contactform() {
     //React Hooks für das Styling der Progress bar
@@ -17,9 +18,10 @@ function Contactform() {
     //Ändeurng im Contact form
 
     function handleChange (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+        const cleanMessage = DOMPurify.sanitize(e.target.value);
         setFormData ({
-            ...formData, //WIr behalten bestehende Daten
-            [e.target.name]: e.target.value //aktualisieren das feld, das sich verändert hat
+            ...formData, //Wir behalten bestehende Daten
+            [e.target.name]: cleanMessage //aktualisieren das Feld, das sich verändert hat
         });
     };
 

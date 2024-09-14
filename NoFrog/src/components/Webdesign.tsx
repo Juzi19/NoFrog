@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Webdesign.css'
+import Contactform from './Contactform';
 
 function Webdesign() {
     const [headline1visble, setHeadline1Visible] = useState(true);
@@ -96,21 +97,7 @@ function Webdesign() {
             </p>
         </section>
         <section id='bluebackground'></section>
-        <section id="contactform">
-            <div id="form">
-                <div>
-                <label htmlFor="email">Email:&nbsp;</label>
-                <input type="email" id="email" placeholder="mrfrog@nofrog-webdesign.de" />
-                </div>
-                <div>
-                <label htmlFor="message">Nachricht:&nbsp;</label>
-                <textarea  id="message" placeholder="Quack!" />
-                </div>
-                <div>
-                <input type="submit" value="Absenden" />
-                </div>
-            </div>
-        </section>
+        <Contactform></Contactform>
 
 
     </div>
