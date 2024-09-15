@@ -4,6 +4,12 @@ const cors = require('cors'); //Paket, welches Daten empfangen von einer anderen
 const mongoose = require('mongoose');
 const Message = require('./Message');
 const Math = require('math');
+const fs = require('fs');
+const https = require('https');
+
+//Import für Sitemap, welche google beim crawlen der website hilft (seo)
+const {SitemapStream, streamToPromise} = require('sitemap');
+const { createGzip }= require('zlib');
 
 // justuszimmermann khZ6zQjvuaOH5ZGf;
 
@@ -20,11 +26,14 @@ mongoose.connect(mongoURI, {
 .catch((error) => console.log('Error connecting to MongoDB Atlas:', error));
 
 
+//SSL Zertifikate einbinden
+const privateKey = fs.readFileSync('./https/key.pem', 'utf8');
+const certificate = fs.readFileSync('./https/cert.pem', 'utf8');
+const credentials =  {key: privateKey , cert: certificate};
 
 //neue express app
 const app = express();
 
-const PORT = process.env.PORT||5000;
 
 //Middleware(wird zwischen request and response ausgeführt)
 //Fuer CORS und JSON
@@ -35,8 +44,37 @@ app.use(express.json()); //Verarbeitet json daten, die von dem CLient gesendet w
 //Test route um Sicherzustellen, dass der Server läuft
 
 app.get('/', (req, res) => {
-    res.send(`Server is running`);
+    res.send(`Server is running: Session: ${Date.now()}`);
 });
+
+//Route für Sitemap (SEO)
+app.get('/sitemap.xml', async (req, res) => {
+    res.header('Content-Type', 'application/xml'); //Client knows that its receiving a xml file
+    res.header('Content-Encoding', 'gzip'); //Response will be compressed by using gzip
+
+    const sitemapStream = new SitemapStream({hostname: 'https://nofrog-webdesign.de'}); //Erstellt einen Stream, der eine Sitemap erstellt, der hostname spezifiziert die basis url
+    const pipeline = sitemapStream.pipe(createGzip()); //verbindet den stream zu Gzip um ihn zu komprimieren
+
+    //Jede URL die zu der SItemap hinzugefügt werden soll
+    sitemapStream.write({ url: '/', changefreq: 'daily', priority: 1.0 });
+    sitemapStream.write({ url: '/webdesign', changefreq: 'weekly', priority: 0.8 });
+    sitemapStream.write({ url: '/aboutus', changefreq: 'monthly', priority: 0.6 });
+    sitemapStream.write({ url: '/contact', changefreq: 'monthly', priority: 0.6 });
+    sitemapStream.write({ url: '/yourrequest', changefreq: 'monthly', priority: 0.5 });
+
+
+    //Finish the sidestream
+    sitemapStream.end();
+
+    //Verändert den Sidestream in ein Promise, .then schickt, wenn das promise aufgelöst ist den befehl die sidemap zu erstellen
+    streamToPromise(pipeline).then((sm) => {
+        fs.writeFileSync('public/sitemap.xml.gz', sm);
+    });
+    //Schickt Sidemap an den Client, error wird geloggt
+    pipeline.pipe(res).on('error', (e) => console.log(e))
+
+});
+
 
 //Route für das Kontaktformular
 
@@ -44,7 +82,7 @@ app.post('/send-email', async (req, res) => {
     //Wir erwarten, bis der Client (react) die daten schickt
     const {email, message} = req.body;
     const id = Date.now() + Math.round(Math.random()*1000);
-    const status = "Request sended";
+    const status = "Request sent";
 
 
     //Sichergehen, dass alle Felder ausgefüllt sind
@@ -85,7 +123,22 @@ app.post('/send-email', async (req, res) => {
             from: 'nofrog.webdesign@gmail.com',
             to: email,
             subject: 'Your NoFrog Request',
-            html: `Thank you so much for your message. We will get in touch with you as soon as possible! 🐸 To see any changes in the status of your request, you can check your request on our website: ${id} <br><br> Your Message: ${message} <br><br> This message was created automatically. Please do not reply. We will reach you out as soon as possible.`
+            html: `
+  <div style="background-color:#8CD2EE; padding: 20px; font-family: Arial, sans-serif;">
+    <p style="font-weight: bold; color: black;">
+      Thank you so much for your message. We will get in touch with you as soon as possible! 🐸
+    </p>
+    <p style="color: black;">
+      To see any changes in the status of your request, you can check your request on our website: ${id}
+    </p>
+    <p style="color: black;">
+      Your Message: ${message}
+    </p>
+    <p style="color: black; font-size: 12px;">
+      This message was created automatically. Please do not reply. We will reach you out as soon as possible.
+    </p>
+  </div>
+`
         }
         
         //Versende die Mail
@@ -103,12 +156,40 @@ app.post('/send-email', async (req, res) => {
     }
 });
 
+//Route für den Statuscheck von dem Requestid
+
+app.post('/requestid', async (req, res) => {
+    const {id} = req.body;
+
+    if (!id) {
+        return res.status(400).json({error: 'Bitte alle Felder ausfüllen'});
+    }
+    try {
+        //Fragt den passenden Datensatz in der MongoDB Datenbank nach
+        Message.findOne({ id: id }) //sucht nach dem User mit der id innerhalb des message schemas
+        .then(user => {
+            console.log('Gefundener Benutzer:', user);
+            console.log('Sending data to the frontend');
+            return res.status(200).json(user);  //beantwortet die anfrage und schickt daten an das frontend
+        })
+        .catch(err => {
+            console.error('Fehler beim Abrufen des Benutzers:', err);
+        });
+    }
+    catch(error) {
+        return res.status(500).json({error: `Internal error occured at: ${error}`})
+    }
+});
 
 
+//PORT
+const PORT = process.env.PORT||443;
+
+const httpsServer = https.createServer(credentials, app);
 
 //Startet den Server
 
-app.listen(PORT, () => {
-    console.log(`Server läuft auf Port ${PORT}`);
+httpsServer.listen(PORT, () => {
+    console.log(`Https Server läuft auf Port ${PORT}`);
 });
 

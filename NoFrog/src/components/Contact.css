@@ -3,6 +3,17 @@
     --soft-yellow: #FFF7B1;
     --skyblue: #8CD2EE;
 }
+/* Entfernt die Pfeile bei Chrome, Safari, Edge und Opera */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Entfernt die Pfeile bei Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 #contactheadline {
     background-color: var(--skyblue);
     margin: 0px;

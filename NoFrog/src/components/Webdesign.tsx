@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Webdesign.css'
 import Contactform from './Contactform';
+import { Helmet } from 'react-helmet';
 
 function Webdesign() {
     const [headline1visble, setHeadline1Visible] = useState(true);
@@ -45,7 +46,14 @@ function Webdesign() {
 
 
   return (
+    <>
+    <Helmet>
+        <title>🐸 NoFrog | Webdesign</title>
+        <meta name='description' content='NoFrog Webdesign ist einzigartig, schnell, effizient und auf Ihre Bedürfnisse zugeschnitten'/>
+        <meta name='keywords' content='NoFrog, Webdesign, Arbeit, Web, Webdevelopement, INternetdesign, Webentwicklung, schnelles Webdesign, schnelle Webentwicklung, einzigartig, einzigartige Webentwicklung, Einzigartigkeit'/>
+    </Helmet>
     <div id='bodywebdesign'>
+        
         <section id={`${backgroundcolorwhite ? 'whitewebdesignheader' : 'webdesignheader2'}`}>
             <h2 className={`${headline1visble ? 'visibletransition' : 'notvisibletransition'}`}>nofrog Webdesign</h2>
             <img className={`${headline2visble ? 'visibletransition' : 'notvisibletransition'}`} src="src/assets/frog.png" alt="NoFrog Frog" />
@@ -98,9 +106,9 @@ function Webdesign() {
         </section>
         <section id='bluebackground'></section>
         <Contactform></Contactform>
-
-
     </div>
+    </>
+    
   )
 }
 

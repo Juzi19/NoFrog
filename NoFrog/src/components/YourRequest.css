@@ -1,0 +1,35 @@
+:root {
+    --mint-green: #98FF98;
+    --soft-yellow: #FFF7B1;
+    --skyblue: #8CD2EE;
+}
+#requestbody {
+    width: 100vw;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--soft-yellow);
+}
+#requestbody #form {
+    display: flex;
+    margin-top: 5vh;
+    align-items: center;
+}
+#requestbody h1{
+    margin-top: 8vh;
+}
+#requestbody #form button {
+    margin: 5px;
+    background-color:var(--skyblue);
+    color: white;
+    padding: 5px;
+}
+#requestbody hr {
+    width: 90vw;
+}
+#text11 {
+    margin-top: 5vh;
+}
+#text11 span {
+    font-weight: bold;
+}

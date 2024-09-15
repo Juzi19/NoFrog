@@ -1,7 +1,7 @@
 import {  useEffect, useRef, useState } from 'react'
 import './Home.css'
-import { Link } from 'react-router-dom';
 import Contactform from './Contactform';
+import { Helmet } from 'react-helmet';
 
 
 function Home() {
@@ -226,6 +226,11 @@ function Home() {
 
   return (
     <>
+    <Helmet>
+      <title>🐸 NoFrog | Webdesign </title>
+      <meta name='description' content='Maßgeschneiderte, INdividuelle Webdesign-Lösungen für Ihre Business'/>
+      <meta name='keywords' content='Webdesign, Webdevelopement, Webentwicklung, München, NoForg, nofrog, professionell, einzigartig, schnell, Agentur, MrFrog, Web, Design, Entwicklung, Internetseite neu'/>
+    </Helmet>
     <section id='landing'>
         <div className='h1textcontainer' id={`${headline1visible ? 'headline1visible' : 'headline1notvisible'}`}><h1>Ihre <span>Website</span> ist die <span>digitale Visitenkarte.</span></h1></div>
         <div className='h1textcontainer' id={`${headline2visible ? 'headline2visible' : 'headline2notvisible'}`}><h1><span>Perfekt</span> gestaltet, gewinnt sie <span>Kunden.</span></h1></div>

@@ -8,7 +8,8 @@ import Aboutus from './components/Aboutus.tsx';
 import Legals from './components/Legals.tsx';
 import DataUsage from './components/DataUsage.tsx';
 import CookieRequest from './components/CookieRequest.tsx';
-
+import YourRequest from './components/YourRequest.tsx';
+import NotFound from './components/NotFound.tsx'
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
         <Route path='/aboutus' element={<Aboutus />}/>
         <Route path='/legals' element={<Legals />}/>
         <Route path='/dataguidelines' element={<DataUsage />}/>
+        <Route path='/yourrequest' element={<YourRequest />}/>
+        <Route path='/*' element={<NotFound />}/>
 
 
 
@@ -50,7 +53,9 @@ function App() {
         <div id='footerlinks'>
           <Link to='/contact'>Kontakt</Link>
           <Link to='/legals'>Impressum</Link>
-          <Link to='dataguidelines'>Datenschutz</Link>
+          <Link to='/dataguidelines'>Datenschutz</Link>
+          <Link to='/yourrequest'>Anfragen Status</Link>
+      
         </div>
       </footer>
     </div>

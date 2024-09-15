@@ -14,6 +14,7 @@
     "express": "^4.21.0",
     "math": "^0.0.3",
     "mongoose": "^8.6.2",
-    "nodemailer": "^6.9.15"
+    "nodemailer": "^6.9.15",
+    "sitemap": "^8.0.0"
   }
 }
