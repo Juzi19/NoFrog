@@ -1,0 +1,123 @@
+:root {
+    --mint-green: #98FF98;
+    --soft-yellow: #FFF7B1;
+    --skyblue: #8CD2EE;
+  }
+
+#firstsection1 {
+    position: fixed;
+    display: flex;
+    background-image: url('../assets/froginapond_3.jpg'); /* Pfad zu deinem Bild */
+    background-size: cover; /* Bild skalieren, um das Element zu füllen */
+    background-position: center 12vh; /* Bild zentrieren */
+    background-attachment: fixed; /* Bild fixiert, um Scrollen zu verhindern */
+    background-repeat: no-repeat; /* Verhindert das Wiederholen des Bildes */
+    overflow: hidden; /* Optional: Verhindert Scrollen, wenn das Bild groß ist */
+    width: 90vw;
+    height: 88vh;
+    top: 12vh;
+    align-items: center;
+    justify-content: center;
+    padding: 5vw;
+    color: rgb(254, 251, 251);
+}
+#firstsection1 div {
+    position: absolute;
+    text-align: center;
+}
+#mobilehomescrolldown {
+    position: relative;
+    height: 1000px;
+    width: 100vw;
+}
+#section3mobile {
+    position: relative;
+    z-index: 1;
+    background-color: black;
+    width: 100%;
+    height: 1500px;
+    display: flex;
+    justify-content: center;
+}
+#section3mobile #div54 {
+   position: relative;
+   display: flex;
+   margin-top: 10vh;
+   height: 50vw;
+   flex-direction: column;
+   left: 22vw;
+   background-color: #333;
+   padding: 10px;
+   border-radius: 10px;
+   
+}
+#section3mobile img{
+    height: 100%;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+#section3mobile #div54::after, #section3mobile #div54::before {
+    content: '';  
+    position: absolute;  
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: conic-gradient(from var(--angle), #FF0077, #FF8C00, #FFFF00, #00FF00, #00FFFF, #0000FF, #800080, #FF0077);
+    padding: 0.2em;
+    z-index: -1;
+    border-radius: 10px;
+    opacity: 0.9;
+    animation: 3s spin linear infinite;
+}
+#section3mobile #div54::before {
+    filter: blur(1.5rem);
+    opacity: 1;
+}
+
+#section3mobile #div55 {
+    position: relative;
+    margin-top: 80vw;
+    color: white;
+    width: 50vw;
+    left: -25vw;
+}
+#section4mobile {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 12vh;
+    height: 88vh;
+    width: 100vw;
+    background-color: var(--skyblue);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    
+}
+#section4mobile h2{
+    width: 80vw;
+    height: fit-content;
+}
+#section4mobile h2:last-child{
+    color: #333;
+}
+#section4mobile h2:first-child{
+    font-size: 2.05rem;
+}
+.visibletransitionZ {
+    opacity: 1;
+    z-index: 2;
+    transition: opacity 1s ease-in-out;
+}
+.notvisibletransitionZ {
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 1s ease-in-out;
+}

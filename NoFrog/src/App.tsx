@@ -54,7 +54,7 @@ function App() {
           <Link to='/contact'>Kontakt</Link>
           <Link to='/legals'>Impressum</Link>
           <Link to='/dataguidelines'>Datenschutz</Link>
-          <Link to='/yourrequest'>Anfragen Status</Link>
+          <Link to='/yourrequest'>Anfragen</Link>
       
         </div>
       </footer>

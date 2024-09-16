@@ -266,3 +266,45 @@
 #endtext p {
     font-weight: bold;
 }
+
+/* Media Query für Bildschirme unter 768px */
+@media screen and (max-width: 768px) {
+    #webdesignheader2 h2 {
+        font-size: 2em; /* Kleinere Schriftgröße für mobile Geräte */
+    }
+
+    #webdesignheader2 img {
+        width: 40vh; /* Bildgröße verkleinern */
+    }
+
+    /* Setzt flex-direction auf column für Texte und Bilder */
+    #webdesigntext1, #webdesigntext2, #webdesigntext3, #webdesigntext4, #pricing {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #webdesigntext1 div, #webdesigntext2 div, #webdesigntext3 div, #webdesigntext4 div {
+        width: 90vw; /* Volle Breite für Mobilgeräte */
+        height: auto;
+        padding: 2vh;
+    }
+
+    #webdesigntext1 img, #webdesigntext2 img, #webdesigntext3 img, #webdesigntext4 img, #pricing img {
+        height: 50vw;
+        margin: 3vh;
+    }
+
+    #clients div {
+        max-width: 90%;
+    }
+
+    #pricing div {
+        width: 90vw;
+    }
+
+    #endtext p{
+        display: flex;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+}

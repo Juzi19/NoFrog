@@ -25,7 +25,7 @@ function Aboutus() {
             <img src="src/assets/Justus.jpg" alt="Justus" />
             </div>
             <div id='teamcontainer2'>
-            <img src="src/assets/John.jpg" alt="Justus" />
+            <img src="src/assets/John.jpg" alt="John" />
             <div><h3>John</h3><p>Designer</p></div>
             </div>
             

@@ -56,7 +56,7 @@ function Webdesign() {
         
         <section id={`${backgroundcolorwhite ? 'whitewebdesignheader' : 'webdesignheader2'}`}>
             <h2 className={`${headline1visble ? 'visibletransition' : 'notvisibletransition'}`}>nofrog Webdesign</h2>
-            <img className={`${headline2visble ? 'visibletransition' : 'notvisibletransition'}`} src="src/assets/frog.png" alt="NoFrog Frog" />
+            <img id='frogimage' className={`${headline2visble ? 'visibletransition' : 'notvisibletransition'}`} src="src/assets/frog.png" alt="NoFrog Frog" />
             <h2 className={`${headline3visble ? 'visibletransition' : 'notvisibletransition'}`} >Schnelligkeit, Einzigartigkeit und deine Ideen im Fokus</h2>
         </section>
         <section id='scrolldown3'></section>
@@ -65,7 +65,7 @@ function Webdesign() {
             <p>Du willst nicht nur irgendeine Website &ndash; du willst <span>deine</span> Website. Bei <span>NoFrog Webdesign</span> bekommst du genau das. <br /> In nur <span>20 Tagen</span> liefern wir dir eine einzigartige Website, die schnell, professionell und zu 100% auf deine Bedürfnisse zugeschnitten ist. <br /> <span>Aber das Beste daran? </span> Du bist von Anfang an <span>Teil des Prozesses.</span>
             </p>
             </div>
-            <img src="src/assets/picture_1.jpg" alt="Picuture 1" />
+            <img src="src/assets/picture_1.jpg" alt="Glühbirne_aus" />
         </section>
         <section id='webdesigntext2'>
         <img src="src/assets/keyboard.jpg" alt="Keyboard" />
@@ -82,10 +82,10 @@ function Webdesign() {
                 Und das Beste: Unsere Designs sind nicht nur schön anzusehen, sondern auch darauf ausgelegt, dein <span>Business voranzubringen</span>. Durch gezielte Optimierung und ansprechendes Design sorgen wir dafür, dass deine Website nicht nur Besucher anzieht, sondern auch <span>Conversion-Raten steigert</span>  und <span>dein Geschäftswachstum </span>fördert.
                 </p>
             </div>
-            <img src="src/assets/succes.jpg" alt="success" />
+            <img src="src/assets/succes.jpg" alt="Wachstum" />
         </section>
         <section id='webdesigntext4'>
-            <img src="src/assets/money.jpg" alt="" />
+            <img src="src/assets/money.jpg" alt="Geld" />
             <div><p>
                 Solltest du am Ende nicht zufrieden sein, bieten wir dir eine <span>100% Geld-zurück-Garantie</span> &ndash; bis zum letzten Schritt. Dein Risiko ist gleich null. Einfach und unkompliziert.
             </p></div>
@@ -98,7 +98,7 @@ function Webdesign() {
             <div><p>
                 Bei NoFrog erhältst du <span>hochwertiges Webdesign</span>, das seine Kosten wert ist. Wir bieten exklusive Lösungen, die nicht nur dein <span>Budget respektieren</span>, sondern auch sicherstellen, dass du die beste Qualität erhältst.
             </p></div>
-            <img src="src/assets/business.jpg" alt="ink" />
+            <img src="src/assets/business.jpg" alt="Tinte" />
         </section>
         <section id='endtext'>
             <p>            Bereit, deine Online-Präsenz zu verbessern? Lass uns quatschen!
