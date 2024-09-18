@@ -87,14 +87,21 @@ function MobileHome() {
     
     setCanvassstatus(1.12);
   }
-  }
+  };
+
+
   
   
 
 
   //React useEffect Hook for displaying content
   useEffect(()=> {
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll);
+
+    return (() => {
+      window.removeEventListener('scroll', handleScroll);
+
+    })
   }, []);
 
   return (
@@ -128,19 +135,26 @@ function MobileHome() {
       
     </section>
   
-    <section>
-      <div>      
+    <section id="section6mobile">
+      <div className="sdiv1">      
         <h3>Einzigartig</h3>
-        <p>Jede NoFrog Website ist ein echtes Unikat. </p>
+        <p>Jede NoFrog Website ist ein <span>echtes Unikat.</span> Individuelles Design trifft auf präzises Copywriting - für ein ultimatives Quack!</p>
+        <p><span>#uniquefrog</span></p>
       </div>
-      <div>      
+      <div className="sdiv1">      
         <h3>Schnell</h3>
+        <p>Ihre Website geht nach nur <span>20</span> Tagen online. Schneller können Frösche gar nicht hüpfen!</p>
+        <p><span>#fastfrog</span></p>
+
       </div>
-      <div>      
+      <div className="sdiv1">      
         <h3>Ohne Risiken</h3>
+        <p><span>100%-Geld-zurück Garantie</span> bis zum letzten Schritt. Mr Frog will Sie zufrieden sehen, ansonsten erhalten Sie sofort Ihr Geld zurück!</p>
+        <p><span>#satisfiedfrog</span></p>
       </div>
     </section>
-    <section><h2>Gemeinsam erschaffen wir Ihr Edelamphib</h2></section>
+    <section id="section7mobile"><h2>Gemeinsam erschaffen wir Ihr <span>Edelamphib</span></h2></section>
+    <section id="section8mobile"><h2>Wir brauchen nur noch Ihr Quack! Dann können wir loshüpfen!</h2></section>
     <Contactform></Contactform>
     </>
   )
