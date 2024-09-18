@@ -1,7 +1,8 @@
 // src/App.js
-import { Routes, Route, Link } from 'react-router-dom'
-import Homepage from './components/Homepage.tsx'
-import './App.css'
+import { Routes, Route, Link } from 'react-router-dom';
+import { useState } from 'react';
+import Homepage from './components/Homepage.tsx';
+import './App.css';
 import Contact from './components/Contact.tsx';
 import Webdesign from './components/Webdesign.tsx';
 import Aboutus from './components/Aboutus.tsx';
@@ -12,6 +13,20 @@ import YourRequest from './components/YourRequest.tsx';
 import NotFound from './components/NotFound.tsx'
 
 function App() {
+  //React Code for hamburger menu
+  const [submenuvisible, setSubmenuvisible] = useState(false);
+
+  const handleClick = (()=>{
+    if(submenuvisible) {
+      setSubmenuvisible(false);
+    }
+    else if (submenuvisible === false){
+      setSubmenuvisible(true);
+    }
+    else {
+      console.log('I dont know what to do');
+    }
+  })
   return (
     <div>
       <header>
@@ -20,8 +35,15 @@ function App() {
           <Link to="/webdesign" className="nav-link ">Webdesign</Link>
           <Link to="/aboutus" className="nav-link">Über uns</Link>
           <Link to="/contact" className="nav-link">Kontakt</Link>
+          <div onClick={handleClick}>&#9776;</div>
         </nav>
       </header>
+
+      <section id='navlinks' className={`${submenuvisible ? 'menuvisible' : 'menunotvisible'}`}>
+          <Link to="/webdesign" className="link1">Webdesign</Link>
+          <Link to="/aboutus" className="link1">Über uns</Link>
+          <Link to="/contact" className="link1">Kontakt</Link>
+      </section>
       <CookieRequest></CookieRequest>
       <Routes>
         <Route path='/' element={<Homepage />} />

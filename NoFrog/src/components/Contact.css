@@ -89,6 +89,14 @@ input[type="number"] {
     color: rgb(166, 0, 0);
 }
 
-
+@media screen and (max-width: 768px) {
+    #contactdetails {
+        flex-direction: column;
+        
+    }
+    #contactdetails div{
+        margin-top: 10vh;
+    }
+}
 
 

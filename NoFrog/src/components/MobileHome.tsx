@@ -81,7 +81,8 @@ function MobileHome() {
    setCanvassstatus(0);
   }
   else if (scrollPosition > 1900 && scrollPosition < 2350) {
-    setCanvassstatus(((scrollPosition-1900) / 450)*1.12)
+    setCanvassstatus(((scrollPosition-1900) / 450)*1.12);
+    setFixedVisible(true);
   }
   else if (scrollPosition > 2350) {
     
