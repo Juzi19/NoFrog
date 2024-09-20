@@ -16,6 +16,10 @@ function App() {
   //React Code for hamburger menu
   const [submenuvisible, setSubmenuvisible] = useState(false);
 
+  const hidesubmenu = (()=> {
+    setSubmenuvisible(false);
+  })
+
   const handleClick = (()=>{
     if(submenuvisible) {
       setSubmenuvisible(false);
@@ -39,7 +43,7 @@ function App() {
         </nav>
       </header>
 
-      <section id='navlinks' className={`${submenuvisible ? 'menuvisible' : 'menunotvisible'}`}>
+      <section id='navlinks' className={`${submenuvisible ? 'menuvisible' : 'menunotvisible'}`} onClick={hidesubmenu}>
           <Link to="/webdesign" className="link1">Webdesign</Link>
           <Link to="/aboutus" className="link1">Über uns</Link>
           <Link to="/contact" className="link1">Kontakt</Link>
