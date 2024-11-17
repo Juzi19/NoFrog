@@ -6,6 +6,9 @@ const Message = require('./Message');
 const Math = require('math');
 const fs = require('fs');
 const https = require('https');
+const validator = require('validator');
+const sanitizeHtml = require('sanitize-html');
+const xss = require('xss');
 
 //Import für Sitemap, welche google beim crawlen der website hilft (seo)
 const {SitemapStream, streamToPromise} = require('sitemap');
@@ -42,7 +45,6 @@ app.use(cors()); //Möglichkeit Anfragen von einer anderen Domain empfangen
 app.use(express.json()); //Verarbeitet json daten, die von dem CLient gesendet werden
 
 //Test route um Sicherzustellen, dass der Server läuft
-
 app.get('/', (req, res) => {
     res.send(`Server is running: Session: ${Date.now()}`);
 });
@@ -83,7 +85,12 @@ app.post('/send-email', async (req, res) => {
     const {email, message} = req.body;
     const id = Date.now() + Math.round(Math.random()*1000);
     const status = "Request sent";
-
+    if (!validator.isEmail(email)) {
+        return res.status(400).json({error: 'Invalid email format'});
+      }
+    
+    message = sanitizeHtml(message);
+    message = xss(message);
 
     //Sichergehen, dass alle Felder ausgefüllt sind
 
