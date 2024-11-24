@@ -170,17 +170,18 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext('2d');
+    const my_canvas = canvasRef.current;
+    if (!my_canvas) return;
+    const ctx = my_canvas?.getContext('2d');
     
     if (ctx) {
       // Canvas und Kontext zurücksetzen
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, my_canvas.width, my_canvas.height);
       
       // Zeichne den grünen Punkt
       ctx.fillStyle = '#98FF98';
       ctx.beginPath();
-      ctx.arc(canvas.width / 2, canvas.height / 2, circleSize, 0, Math.PI * 2);
+      ctx.arc(my_canvas.width / 2, my_canvas.height / 2, circleSize, 0, Math.PI * 2);
       ctx.fill();
     }
   }, [circleSize]); // Der Effekt wird ausgeführt, wenn die Größe des Kreises sich ändert
