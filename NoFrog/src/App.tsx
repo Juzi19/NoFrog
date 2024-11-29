@@ -74,7 +74,7 @@ function App() {
           </a>
         </div>
         <div id='footerimage'>
-          <img src="src/assets/frog.png" alt="Frog" />
+          <img src="/assets/frog.webp" alt="Frog" />
         </div>
         <div id='footerlinks'>
           <Link to='/contact'>Kontakt</Link>
