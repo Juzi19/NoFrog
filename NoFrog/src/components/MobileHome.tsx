@@ -118,7 +118,7 @@ function MobileHome() {
     <section id="mobilehomescrolldown" />
     <section id="section3mobile">
       <div id="div54">
-      <img src="src/assets/frog.png" alt="Frosch" />
+      <img src="src/assets/frog.webp" alt="Frosch" />
       </div>
       <div id="div55">
          <h2>Eine starke und hochwertige digitale Visitenkarte</h2>
