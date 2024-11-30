@@ -48,7 +48,7 @@ function Webdesign() {
   return (
     <>
     <Helmet>
-        <title>🐸 NoFrog | Webdesign</title>
+        <title>NoFrog | Webdesign</title>
         <meta name='description' content='NoFrog Webdesign ist einzigartig, schnell, effizient und auf Ihre Bedürfnisse zugeschnitten'/>
         <meta name='keywords' content='NoFrog, Webdesign, Arbeit, Web, Webdevelopement, INternetdesign, Webentwicklung, schnelles Webdesign, schnelle Webentwicklung, einzigartig, einzigartige Webentwicklung, Einzigartigkeit'/>
     </Helmet>

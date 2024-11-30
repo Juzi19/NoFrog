@@ -1,6 +1,8 @@
 import  { useEffect, useState, useRef } from "react";
 import './MobileHome.css';
 import Contactform from "./Contactform";
+import { Helmet } from 'react-helmet';
+
 
 
 function MobileHome() {
@@ -107,6 +109,11 @@ function MobileHome() {
 
   return (
     <>
+    <Helmet>
+      <title>NoFrog | Webdesign </title>
+      <meta name='description' content='Maßgeschneiderte, INdividuelle Webdesign-Lösungen für Ihre Business'/>
+      <meta name='keywords' content='Webdesign, Webdevelopement, Webentwicklung, München, NoForg, nofrog, professionell, einzigartig, schnell, Agentur, MrFrog, Web, Design, Entwicklung, Internetseite neu'/>
+    </Helmet>
     <section id="firstsection1">
       <div className={`${h1 ? 'visibletransition' : 'notvisibletransition'}`}>
       <h3>Stellen Sie sich vor...</h3>

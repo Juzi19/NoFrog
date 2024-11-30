@@ -9,7 +9,7 @@ function Aboutus() {
   return (
     <>
     <Helmet>
-      <title>🐸 Über NoFrog</title>
+      <title>Über NoFrog</title>
       <meta name='description' content='Über NoFrog. NoForg ist eine der froschigsten Webdesign Agenturen die der TEich so zu bieten hat. Doch wie viele Frösche sind wirklich hier?'/>
       <meta name='keywords' content='Über Uns, Über NoFrog, Wer ist NoFrog, Webdesign, agentur, Webdevelopment, Webentwicklung, Frösche'/>
     </Helmet>

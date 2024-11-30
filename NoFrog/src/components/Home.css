@@ -441,6 +441,19 @@ input[type="submit"]:hover {
 
 }
 
+.bg-black-false{
+    display: none;
+}
+.bg-black-false{
+    position: fixed;
+    display: flex;
+    height: 88%;
+    top: 12%;
+    width: 100%;
+    background-color: black;
+    z-index: 11;
+}
+
 @keyframes glitch {
     0%, 100% {
         transform: skew(0deg);

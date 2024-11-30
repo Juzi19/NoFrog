@@ -61,6 +61,7 @@ function Home() {
   const [happyfrogtext2visible, setHappyFrogText2Visible] = useState(false);
   const [happyfrogtext3visible, setHappyFrogText3Visible] = useState(false);
   const [backgroundcolorgrey, setBackGroundColorGrey] = useState(false);
+  const [blackbg, setBlackBg] = useState(false);
 
   const handleScroll2 = () => {
     if (canvasRef.current) {
@@ -118,14 +119,17 @@ function Home() {
         setText2Visible(false);
         setText3Visible(true);
         setNoFOrgIsFastVIsible(true);
+        setBlackBg(false);
       }
       else if (scrollPosition > 5800 && scrollPosition < 6645) {
         setNoFOrgIsFastVIsible(false);
+        setBlackBg(true);
         setHappyFrogRelative(true);
       }
       else if(scrollPosition > 6645 && scrollPosition < 7100) {
         setHappyFrogRelative(false);
         setHappyFrogText1Visible(false);
+        setBlackBg(false);
 
       }
       else if(scrollPosition > 7100 && scrollPosition < 7550) {
@@ -216,10 +220,6 @@ function Home() {
     ctx2.fillRect(rectWidth * 4, 0, rectWidth + 1, rectHeight);
 
     ctx2.fill();
-
-    if (scrollPosition1 > window.innerHeight*0.88){
-      ctx2.fillRect(0,0, window.innerHeight, window.innerWidth*0.88)
-    }
     
   }, [scrollPosition1]);
 
@@ -227,7 +227,7 @@ function Home() {
   return (
     <>
     <Helmet>
-      <title>🐸 NoFrog | Webdesign </title>
+      <title>NoFrog | Webdesign </title>
       <meta name='description' content='Maßgeschneiderte, INdividuelle Webdesign-Lösungen für Ihre Business'/>
       <meta name='keywords' content='Webdesign, Webdevelopement, Webentwicklung, München, NoForg, nofrog, professionell, einzigartig, schnell, Agentur, MrFrog, Web, Design, Entwicklung, Internetseite neu'/>
     </Helmet>
@@ -284,6 +284,8 @@ function Home() {
       <img src="/assets/frog.webp" alt="Frosch" />
       </section>
     </section>
+    <div className={`${blackbg ? 'bg-black-false' : 'bg-black-true' }`}>
+    </div>
     <section id='happyfrog' className={`${happyfrogrelative ? 'relative' : 'fixed' }`}>
       <div id='happyfrogtext'>
       <h2 className={`${happyfrogtext1visible ? 'visibletransition' : 'notvisibletransition'}`}>Zufriedenheitsgarantie</h2>
