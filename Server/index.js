@@ -82,7 +82,7 @@ app.get('/sitemap.xml', async (req, res) => {
 
 app.post('/send-email', async (req, res) => {
     //Wir erwarten, bis der Client (react) die daten schickt
-    const {email, message} = req.body;
+    let {email, message} = req.body;
     const id = Date.now() + Math.round(Math.random()*1000);
     const status = "Request sent";
     if (!validator.isEmail(email)) {

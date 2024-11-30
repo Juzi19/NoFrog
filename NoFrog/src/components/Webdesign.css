@@ -269,6 +269,26 @@
 
 /* Media Query für Bildschirme unter 768px */
 @media screen and (max-width: 768px) {
+
+    footer {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        text-align: center;
+    }
+    #footerlinks{
+        margin: 0px;
+        text-align: center;
+        align-items: center;
+    }
+    #footerimage{
+        margin: 0px;
+        height: 5vh;
+        margin: 1%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
     #webdesignheader2 h2 {
         font-size: 2em; /* Kleinere Schriftgröße für mobile Geräte */
     }

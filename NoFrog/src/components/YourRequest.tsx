@@ -66,6 +66,7 @@ function YourRequest() {
     console.log(`is submitting: ${requestid}`);
       
     try {
+      //Url für deployement: /api/requestid
       const response = await fetch('https://localhost:443/requestid', {
         method: 'POST', //Sendet Daten mit der POST-Methode
         headers: {

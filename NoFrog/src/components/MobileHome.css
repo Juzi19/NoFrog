@@ -7,7 +7,7 @@
 #firstsection1 {
     position: fixed;
     display: flex;
-    background-image: url('../assets/froginapond_3.webp'); /* Pfad zu deinem Bild */
+    background-image: url('/assets/froginapond_3.webp'); /* Pfad zu deinem Bild */
     background-size: cover; /* Bild skalieren, um das Element zu füllen */
     background-position: center 12vh; /* Bild zentrieren */
     background-attachment: fixed; /* Bild fixiert, um Scrollen zu verhindern */

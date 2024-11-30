@@ -39,7 +39,7 @@ function App() {
           <Link to="/webdesign" className="nav-link ">Webdesign</Link>
           <Link to="/aboutus" className="nav-link">Über uns</Link>
           <Link to="/contact" className="nav-link">Kontakt</Link>
-          <div onClick={handleClick}>&#9776;</div>
+          <div onClick={handleClick} id='hammenu'>&#9776;</div>
         </nav>
       </header>
 

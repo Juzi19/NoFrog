@@ -278,7 +278,7 @@ function Home() {
       </div>
       
       <section>
-      <img src="./src/assets/frog.webp" alt="Frosch" />
+      <img src="/assets/frog.webp" alt="Frosch" />
       </section>
     </section>
     <section id='happyfrog' className={`${happyfrogrelative ? 'relative' : 'fixed' }`}>
