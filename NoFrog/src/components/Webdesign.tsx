@@ -56,7 +56,7 @@ function Webdesign() {
         
         <section id={`${backgroundcolorwhite ? 'whitewebdesignheader' : 'webdesignheader2'}`}>
             <h2 className={`${headline1visble ? 'visibletransition' : 'notvisibletransition'}`}>nofrog Webdesign</h2>
-            <img id='frogimage' className={`${headline2visble ? 'visibletransition' : 'notvisibletransition'}`} src="/assets/frog.png" alt="NoFrog Frog" />
+            <img id='frogimage' className={`${headline2visble ? 'visibletransition' : 'notvisibletransition'}`} src="/assets/frog.webp" alt="NoFrog Frog" />
             <h2 className={`${headline3visble ? 'visibletransition' : 'notvisibletransition'}`} >Schnelligkeit, Einzigartigkeit und deine Ideen im Fokus</h2>
         </section>
         <section id='scrolldown3'></section>
