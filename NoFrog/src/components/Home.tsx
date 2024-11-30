@@ -217,6 +217,9 @@ function Home() {
 
     ctx2.fill();
 
+    if (scrollPosition1 > window.innerHeight*0.88){
+      ctx2.fillRect(0,0, window.innerHeight, window.innerWidth*0.88)
+    }
     
   }, [scrollPosition1]);
 
