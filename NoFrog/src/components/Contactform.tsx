@@ -43,7 +43,7 @@ function Contactform() {
         //Schicke die Daten an das Backend
 
         try {
-            const response = await fetch('https://localhost:443/send-email', {
+            const response = await fetch('api/send-email', {
                 method: 'POST', //Sendet Daten mit der POST-MEthode
                 headers: {
                     'Content-Type':'application/json', //Wir teilen dem Server mit, dass wir JSON Daten schicken
