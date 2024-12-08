@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DOMPurify from 'dompurify';
 
 
@@ -15,7 +15,7 @@ function Contactform() {
     });
     //Zustand für Erfolgsmeldungen
     const [status, setStatus] = useState('');
-
+    const [csrfToken, setcsrfToken] = useState('');
     //Ändeurng im Contact form
 
     function handleChange (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
@@ -43,11 +43,14 @@ function Contactform() {
         //Schicke die Daten an das Backend
 
         try {
-            const response = await fetch('api/send-email', {
+            console.log('Verwendeter CSRF Token: ',csrfToken)
+            const response = await fetch('https://localhost:5000/send-email', {
                 method: 'POST', //Sendet Daten mit der POST-MEthode
                 headers: {
                     'Content-Type':'application/json', //Wir teilen dem Server mit, dass wir JSON Daten schicken
+                    'x-csrf-token': csrfToken, // Der Token wird im Header gesendet
                 },
+                credentials: 'include',
                 body: JSON.stringify(formData) //Wandelen die Formulardaten in JSON um und schicken sie 
             });
 
@@ -71,12 +74,38 @@ function Contactform() {
     const invisbleMessage = () => {
         setProgressvisible(false);
     }
+    async function fetchCsrfToken() {
+        //const response = await fetch('api/csrf-token');
+        const response = await fetch('https://localhost:5000/csrf-token', {
+            method: 'GET',
+            credentials: 'include',
+        });
+        if (!response.ok) {
+            console.log("Fehler beim Anfordern des csrf token")
+        }
+        const data:any = await response.json();
+        console.log(data);
+        return data.csrfToken;
+    }
+    function setCsrfToken(token:string){
+        setcsrfToken(token);
+    }
+
+    useEffect(()=>{
+        async function getToken() {
+            const token = await fetchCsrfToken();
+            console.log(token);
+            setCsrfToken(token);
+        }
+        getToken();
+    }, []);
 
   return (
     <>
 
     <section id="contactform">
             <form onSubmit={handleSubmit}>
+            <input type="hidden" name="csrfToken" value={csrfToken} />
                 <div id="form">
                     <div>
                     <label htmlFor="email">Email:&nbsp;</label>

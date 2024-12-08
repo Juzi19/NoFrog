@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const nodemailer = require('nodemailer');
 const cors = require('cors'); //Paket, welches Daten empfangen von einer anderen Domain(react fronend) erlaubt
 const mongoose = require('mongoose');
@@ -9,6 +10,7 @@ const https = require('https');
 const validator = require('validator');
 const sanitizeHtml = require('sanitize-html');
 const xss = require('xss');
+const crypto = require('crypto');
 
 //Import für Sitemap, welche google beim crawlen der website hilft (seo)
 const {SitemapStream, streamToPromise} = require('sitemap');
@@ -41,8 +43,47 @@ const app = express();
 //Middleware(wird zwischen request and response ausgeführt)
 //Fuer CORS und JSON
 
-app.use(cors()); //Möglichkeit Anfragen von einer anderen Domain empfangen
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true,
+})); //Möglichkeit Anfragen von einer anderen Domain empfangen
+// Session Middleware konfigurieren
+app.use(session({
+    secret: crypto.randomBytes(64).toString('hex'), // Secret für Sessions
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        secure: true, // Setze dies auf `true`, wenn HTTPS verwendet wird
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000,
+        sameSite: 'None'
+    }
+}));
 app.use(express.json()); //Verarbeitet json daten, die von dem CLient gesendet werden
+//Csrf token middleware initialisieren
+app.use((req,res,next) => {
+    console.log("CSRF TOKEN ERSTELLT")
+    //CSRF Token generieren und in der Sitzung speichern
+    req.session.csrfToken = generateCsrfToken();
+    console.log(req.session.csrfToken)
+    next();
+});
+
+/**
+ * Generiert einen zufälligen CSRF-Token.
+ * @returns {string} Der erzeugte CSRF-Token.
+ */
+function generateCsrfToken() {
+    return crypto.randomBytes(64).toString('hex');
+}
+
+app.get('/csrf-token', (req,res)=>{
+    if (!req.session || !req.session.csrfToken) {
+        return res.status(400).json({ error: 'CSRF Token not found' });
+    }
+    console.log('CSRF Token versendet', req.session.csrfToken);
+    res.status(200).json({ csrfToken: req.session.csrfToken });
+});
 
 //Test route um Sicherzustellen, dass der Server läuft
 app.get('/', (req, res) => {
@@ -79,8 +120,15 @@ app.get('/sitemap.xml', async (req, res) => {
 
 
 //Route für das Kontaktformular
-
 app.post('/send-email', async (req, res) => {
+    const mycsrfToken = req.session.csrfToken;
+    console.log('Mein csrf Token', mycsrfToken);
+    const formToken = req.body.csrfToken || req.headers['x-csrf-token'];
+    console.log(mycsrfToken == formToken)
+    // Überprüfung des CSRF-Tokens
+    if (mycsrfToken !== formToken) {
+        return res.status(403).json({ error: 'Ungültiges CSRF-Token' });
+    }
     //Wir erwarten, bis der Client (react) die daten schickt
     let {email, message} = req.body;
     const id = Date.now() + Math.round(Math.random()*1000);
@@ -91,6 +139,7 @@ app.post('/send-email', async (req, res) => {
     
     message = sanitizeHtml(message);
     message = xss(message);
+
 
     //Sichergehen, dass alle Felder ausgefüllt sind
 
