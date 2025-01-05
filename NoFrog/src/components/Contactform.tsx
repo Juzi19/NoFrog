@@ -43,7 +43,6 @@ function Contactform() {
         //Schicke die Daten an das Backend
 
         try {
-            console.log('Verwendeter CSRF Token: ',csrfToken)
             const response = await fetch('https://localhost:5000/send-email', {
                 method: 'POST', //Sendet Daten mit der POST-MEthode
                 headers: {
@@ -84,7 +83,6 @@ function Contactform() {
             console.log("Fehler beim Anfordern des csrf token")
         }
         const data:any = await response.json();
-        console.log(data);
         return data.csrfToken;
     }
     function setCsrfToken(token:string){
@@ -94,7 +92,6 @@ function Contactform() {
     useEffect(()=>{
         async function getToken() {
             const token = await fetchCsrfToken();
-            console.log(token);
             setCsrfToken(token);
         }
         getToken();

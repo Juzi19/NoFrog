@@ -49,7 +49,7 @@ app.use(cors({
 })); //Möglichkeit Anfragen von einer anderen Domain empfangen
 // Session Middleware konfigurieren
 app.use(session({
-    secret: crypto.randomBytes(64).toString('hex'), // Secret für Sessions
+    secret: '123jdgndf446injskjs', // Secret für Sessions
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -62,10 +62,11 @@ app.use(session({
 app.use(express.json()); //Verarbeitet json daten, die von dem CLient gesendet werden
 //Csrf token middleware initialisieren
 app.use((req,res,next) => {
-    console.log("CSRF TOKEN ERSTELLT")
-    //CSRF Token generieren und in der Sitzung speichern
-    req.session.csrfToken = generateCsrfToken();
-    console.log(req.session.csrfToken)
+    if (!req.session.csrfToken) {
+        console.log("CSRF TOKEN ERSTELLT");
+        req.session.csrfToken = generateCsrfToken();
+    }
+    console.log(req.session.csrfToken);
     next();
 });
 
@@ -215,7 +216,18 @@ app.post('/send-email', async (req, res) => {
 //Route für den Statuscheck von dem Requestid
 
 app.post('/requestid', async (req, res) => {
-    const {id} = req.body;
+    const mycsrfToken = req.session.csrfToken;
+    console.log('Mein csrf Token', mycsrfToken);
+    const formToken = req.body.csrfToken || req.headers['x-csrf-token'];
+    console.log(mycsrfToken == formToken)
+    // Überprüfung des CSRF-Tokens
+    if (mycsrfToken !== formToken) {
+        return res.status(403).json({ error: 'Ungültiges CSRF-Token' });
+    }
+
+    let {id} = req.body;
+    id = sanitizeHtml(id);
+    id = xss(id);
 
     if (!id) {
         return res.status(400).json({error: 'Bitte alle Felder ausfüllen'});

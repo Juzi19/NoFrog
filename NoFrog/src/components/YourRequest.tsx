@@ -6,6 +6,8 @@ import { Helmet } from 'react-helmet';
 function YourRequest() {
   const [text1, setText1] = useState('');
   const [text2, setText2] = useState('');
+  const [csrfToken, setcsrfToken] = useState('');
+
 
   //use Effect Hook nach oben bei reoad zu scrollen
 
@@ -67,11 +69,13 @@ function YourRequest() {
       
     try {
       //Url für deployement: /api/requestid
-      const response = await fetch('https://localhost:443/requestid', {
+      const response = await fetch('https://localhost:5000/requestid', {
         method: 'POST', //Sendet Daten mit der POST-Methode
         headers: {
             'Content-Type':'application/json', //Wir teilen dem Server mit, dass wir JSON Daten schicken
-        },
+            'x-csrf-token': csrfToken,
+          },
+        credentials: 'include',
         body: JSON.stringify(requestid) //Wandelen die Formulardaten in JSON um und schicken sie
       });
       const data = await response.json(); //wartet auf antwort vom server
@@ -96,11 +100,36 @@ function YourRequest() {
     }
 
   }
+
+  async function fetchCsrfToken() {
+    //const response = await fetch('api/csrf-token');
+    const response = await fetch('https://localhost:5000/csrf-token', {
+        method: 'GET',
+        credentials: 'include',
+    });
+    if (!response.ok) {
+        console.log("Fehler beim Anfordern des csrf token")
+    }
+    const data:any = await response.json();
+    return data.csrfToken;
+}
+function setCsrfToken(token:string){
+    setcsrfToken(token);
+}
+
+useEffect(()=>{
+    async function getToken() {
+        const token = await fetchCsrfToken();
+        setCsrfToken(token);
+    }
+    getToken();
+}, []);
+
  
   return (
     <>
     <Helmet>
-      <title>🐸 NoFrog Anfragen Status</title>
+      <title>NoFrog Anfragen Status</title>
       <meta name='description' content='NoForg Anfragen Status, Überprüfen Sie den Status Ihrer NoForg Anfrage'/>
       <meta name='keywords' content='Status, Anfrage, NoFrog, MrFrog, Abfragen'/>
     </Helmet>
@@ -110,6 +139,7 @@ function YourRequest() {
       </p>
       <div id='form'>
         <form onSubmit={handleSubmit}>
+        <input type="hidden" name="csrfToken" value={csrfToken} />
         <input type="number" name="id" id="users_id" onChange={handleChange}/>
         <button type='submit'>Los</button>
       </form>
