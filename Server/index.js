@@ -140,6 +140,7 @@ app.post('/send-email', async (req, res) => {
     
     message = sanitizeHtml(message);
     message = xss(message);
+    email = sanitizeHtml(email);
 
 
     //Sichergehen, dass alle Felder ausgefüllt sind
