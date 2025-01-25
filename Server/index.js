@@ -16,8 +16,6 @@ const crypto = require('crypto');
 const {SitemapStream, streamToPromise} = require('sitemap');
 const { createGzip }= require('zlib');
 
-// justuszimmermann khZ6zQjvuaOH5ZGf;
-
 //Mongo DB  Atlas-Verbindungs-URL
 const mongoURI = "mongodb+srv://justuszimmermann:khZ6zQjvuaOH5ZGf@users.pdmct.mongodb.net/Users_Contactform?retryWrites=true&w=majority&appName=Users";
 
