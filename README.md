@@ -1,6 +1,6 @@
-# NoForG Homepage
+# NoFrog Homepage
 
-Die "NoForG"-Homepage ist eine moderne Webanwendung, die mit **React** und **React Router** für das Frontend und **Express** für das Backend entwickelt wurde. Die Anwendung ermöglicht es Benutzern, eine Vielzahl von Funktionen zu nutzen und interaktive Inhalte zu durchsuchen.
+Die "NoFrog"-Homepage ist eine moderne Webanwendung, die mit **React** und **React Router** für das Frontend und **Express** für das Backend entwickelt wurde. Die Anwendung ermöglicht es Benutzern, eine Vielzahl von Funktionen zu nutzen und interaktive Inhalte zu durchsuchen.
 
 ## Features
 
