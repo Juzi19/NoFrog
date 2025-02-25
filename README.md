@@ -4,7 +4,7 @@ Die "NoFrog"-Homepage ist eine moderne Webanwendung, die mit **React** und **Rea
 
 ## Features
 
-- **Frontend**: Entwickelt mit React und React Router für eine dynamische und reaktive Benutzeroberfläche.
+- **Frontend**: Entwickelt mit React und React Router für eine dynamische und interaktve Benutzeroberfläche.
 - **Backend**: Express.js für die Verwaltung von API-Endpunkten und Backend-Logik.
 - **Routing**: Benutzer können zwischen verschiedenen Seiten und Abschnitten der Website navigieren.
 - **Responsives Design**: Die Seite ist für verschiedene Bildschirmgrößen optimiert.
