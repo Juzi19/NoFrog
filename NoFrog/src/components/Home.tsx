@@ -228,7 +228,7 @@ function Home() {
     <>
     <Helmet>
       <title>NoFrog | Webdesign </title>
-      <meta name='description' content='Maßgeschneiderte, INdividuelle Webdesign-Lösungen für Ihre Business'/>
+      <meta name='description' content='Maßgeschneiderte, Individuelle Webdesign-Lösungen für Ihre Business'/>
       <meta name='keywords' content='Webdesign, Webdevelopement, Webentwicklung, München, NoForg, nofrog, professionell, einzigartig, schnell, Agentur, MrFrog, Web, Design, Entwicklung, Internetseite neu'/>
     </Helmet>
     <section id='landing'>
